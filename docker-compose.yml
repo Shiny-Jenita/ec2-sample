@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   frontend:
-    build: ./formapp
+    build: ./frontfolder
     container_name: form_frontend
     ports:
       - "8080:80"
@@ -9,7 +9,7 @@ services:
       - backend
 
   backend:
-    build: ./formback
+    build: ./backfolder
     container_name: form_backend
     ports:
       - "5000:5000"
