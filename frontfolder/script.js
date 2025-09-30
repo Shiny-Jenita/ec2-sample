@@ -1,22 +1,25 @@
-const form = document.getElementById('myForm');
-const responseEl = document.getElementById('response');
+document.getElementById("myForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // Prevent form from submitting normally
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value
-    };
-    
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // Replace with your backend URL
+    const apiUrl = "http://172.31.26.58:5000/api/submit";
+
     try {
-        const res = await fetch('http://localhost:5000/api/submit', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email })
         });
-        const result = await res.json();
-        responseEl.innerText = result.message;
-    } catch (err) {
-        responseEl.innerText = 'Error submitting form.';
+
+        const data = await response.json();
+        document.getElementById("response").innerText = JSON.stringify(data);
+    } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("response").innerText = "Failed to submit form.";
     }
 });
