@@ -3,8 +3,9 @@ FROM python:3.11-slim
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
+RUN pip install --upgrade pip --root-user-action=ignore
 
 COPY server.py .
 
