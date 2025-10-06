@@ -5,7 +5,8 @@ document.getElementById("myForm").addEventListener("submit", async function(e) {
     const email = document.getElementById("email").value;
 
     // Replace with your backend URL
-    const apiUrl = "http://172.31.26.58:5000/api/submit";
+    const apiUrl = "/api/submit"; 
+    //const apiUrl = "http://172.31.26.58:5000/api/submit";
 
     try {
         const response = await fetch(apiUrl, {
