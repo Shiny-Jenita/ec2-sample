@@ -4,13 +4,13 @@ services:
     build: ./frontfolder
     container_name: form_frontend
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - backend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
   backend:
     build: ./backfolder
     container_name: form_backend
-    ports:
-      - "5000:5000"
 
