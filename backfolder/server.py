@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify # pyright: ignore[reportMissingImports]
-
 from flask_cors import CORS  # optional if frontend is served from another origin
 
 app = Flask(__name__)
