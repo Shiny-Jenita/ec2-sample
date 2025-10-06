@@ -6,7 +6,7 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy your frontend files to Nginx root
 COPY index.html /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/nginx.conf
 # Expose port 80
 EXPOSE 80
 
